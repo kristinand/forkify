@@ -1,5 +1,6 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/js/index.js',
@@ -10,13 +11,14 @@ module.exports = {
   devServer: {
     contentBase: './public',
     liveReload: false,
-    open: false
+    open: false,
   },
   plugins: [
     new htmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html',
     }),
+    new Dotenv(),
   ],
   module: {
     rules: [
